@@ -9,12 +9,10 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         HashMap<String, ArrayList> livros = new HashMap<>();
-        int opcao = 0;
-        String autor;
-        String obra;
-        String titulo;
+        int opcao;
+        String autor, obra, titulo;
 
-        while (opcao != 5) {
+        do {
             FuncoesBiblioteca.exibirMenu();
             System.out.print("Digite a opção: ");
             opcao = scanner.nextInt();
@@ -75,7 +73,8 @@ public class Main {
                     System.out.println("Opção Invalida!, Digite novamente.");
                     break;
             }
-        }
+        } while (opcao != 5);
+
         scanner.close();
     }
 }
