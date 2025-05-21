@@ -29,16 +29,29 @@ public class Main {
 
                     boolean livroAdicionado = FuncoesBiblioteca.adicionar(livros, autor, obra);
 
-                    if (livroAdicionado){
+                    if (livroAdicionado) {
                         System.out.println("Livro adicionado com sucesso!");
-                    }else {
+                    } else {
                         System.out.println("Esse Livro já existe na biblioteca!");
                     }
                     break;
                 case 2:
                     System.out.print("Digite o titulo da obra: ");
                     titulo = scanner.nextLine();
-                    FuncoesBiblioteca.pesquisar(livros, titulo);
+                    ArrayList dadosDaPesquisa = FuncoesBiblioteca.pesquisar(livros, titulo);
+
+                    boolean livroEncontrado = (Boolean) dadosDaPesquisa.get(0);
+
+                    if (livroEncontrado) {
+                        System.out.println("____________________________");
+                        System.out.println("Livro encotrado!");
+                        System.out.println("NOME : " + dadosDaPesquisa.get(1));
+                        System.out.println("AUTOR: " + dadosDaPesquisa.get(2));
+                    } else {
+                        System.out.println("____________________________");
+                        System.out.println("Esse livro não foi encontrado!");
+                    }
+
                     break;
                 case 3:
                     FuncoesBiblioteca.listar(livros);
@@ -46,11 +59,12 @@ public class Main {
                 case 4:
                     System.out.print("Digite o titulo da obra: ");
                     titulo = scanner.nextLine();
+
                     boolean livroRemovido = FuncoesBiblioteca.excluir(livros, titulo);
 
-                    if (livroRemovido){
+                    if (livroRemovido) {
                         System.out.println("Livro removido com sucesso!");
-                    }else{
+                    } else {
                         System.out.println("Livro não encotrado!");
                     }
                     break;

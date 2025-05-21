@@ -24,7 +24,7 @@ public class FuncoesBiblioteca {
             for (ArrayList<String> elementos : listaLivros.values()) {
                 if (elementos.contains(obra)) {
                     livroAdicionado = false;
-                }else{
+                } else {
                     livroAdicionado = true;
                     elementos.add(obra);
                 }
@@ -46,24 +46,25 @@ public class FuncoesBiblioteca {
         }
     }
 
-    public static void pesquisar(HashMap<String, ArrayList> listaLivros, String titulo) {
+    public static ArrayList pesquisar(HashMap<String, ArrayList> listaLivros, String titulo) {
         boolean encontrado = false;
+        ArrayList dadosDaPesquisa = new ArrayList<>();
+
         for (String autor : listaLivros.keySet()) {
             for (Object livro : listaLivros.get(autor)) {
                 if (livro.equals(titulo)) {
                     encontrado = true;
-                    System.out.println("____________________________");
-                    System.out.println("Livro encotrado!");
-                    System.out.println("NOME : " + livro);
-                    System.out.println("AUTOR: " + autor);
+                    dadosDaPesquisa.add(encontrado);
+                    dadosDaPesquisa.add(livro);
+                    dadosDaPesquisa.add(autor);
                 }
             }
         }
         if (!encontrado) {
-            System.out.println("____________________________");
-            System.out.println("Esse livro não foi encontrado!");
+            dadosDaPesquisa.add(encontrado);
         }
 
+        return dadosDaPesquisa;
     }
 
     public static boolean excluir(HashMap<String, ArrayList> listaLivros, String titulo) {
