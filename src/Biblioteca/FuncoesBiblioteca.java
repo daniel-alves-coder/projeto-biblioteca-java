@@ -17,16 +17,25 @@ public class FuncoesBiblioteca {
         System.out.println("____________________________");
     }
 
-    public static void adicionar(HashMap<String, ArrayList> listaLivros, String autor, String obra) {
+    public static boolean adicionar(HashMap<String, ArrayList> listaLivros, String autor, String obra) {
+        boolean livroAdicionado = false;
+
         if (listaLivros.containsKey(autor)) {
             for (ArrayList<String> elementos : listaLivros.values()) {
-                elementos.add(obra);
+                if (elementos.contains(obra)) {
+                    livroAdicionado = false;
+                }else{
+                    livroAdicionado = true;
+                    elementos.add(obra);
+                }
             }
         } else {
             ArrayList<String> livro = new ArrayList<>();
             listaLivros.put(autor, livro);
             livro.add(obra);
+            livroAdicionado = true;
         }
+        return livroAdicionado;
     }
 
     public static void listar(HashMap<String, ArrayList> listaLivros) {

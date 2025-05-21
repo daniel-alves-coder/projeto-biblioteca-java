@@ -27,8 +27,13 @@ public class Main {
                     System.out.print("Digite o nome da obra: ");
                     obra = scanner.nextLine();
 
-                    FuncoesBiblioteca.adicionar(livros, autor, obra);
-                    System.out.println("Livro adicionado com sucesso!");
+                    boolean livroAdicionado = FuncoesBiblioteca.adicionar(livros, autor, obra);
+
+                    if (livroAdicionado){
+                        System.out.println("Livro adicionado com sucesso!");
+                    }else {
+                        System.out.println("Esse Livro já existe na biblioteca!");
+                    }
                     break;
                 case 2:
                     System.out.print("Digite o titulo da obra: ");
