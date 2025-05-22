@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        HashMap<String, ArrayList> livros = new HashMap<>();
+        HashMap<String, ArrayList<String>> livros = new HashMap<>();
         int opcao = 0;
         String autor, obra, titulo;
 

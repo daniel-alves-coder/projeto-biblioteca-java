@@ -17,7 +17,7 @@ public class FuncoesBiblioteca {
         System.out.println("____________________________");
     }
 
-    public static boolean adicionar(HashMap<String, ArrayList> listaLivros, String autor, String obra) {
+    public static boolean adicionar(HashMap<String, ArrayList<String>>listaLivros, String autor, String obra) {
         boolean livroAdicionado = false;
 
         if (listaLivros.containsKey(autor)) {
@@ -38,7 +38,7 @@ public class FuncoesBiblioteca {
         return livroAdicionado;
     }
 
-    public static void listar(HashMap<String, ArrayList> listaLivros) {
+    public static void listar(HashMap<String, ArrayList<String>> listaLivros) {
         if (listaLivros.isEmpty()) {
             System.out.println("A biblioteca ainda não possui nenhum livro cadastrado!");
         } else {
@@ -72,7 +72,7 @@ public class FuncoesBiblioteca {
         return dadosDaPesquisa;
     }
 
-    public static boolean excluir(HashMap<String, ArrayList> listaLivros, String titulo) {
+    public static boolean excluir(HashMap<String, ArrayList<String>> listaLivros, String titulo) {
         boolean livroRemovido = false;
         for (ArrayList livros : listaLivros.values()) {
             if (livros.contains(titulo)) {
