@@ -7,8 +7,8 @@ public class FuncoesBiblioteca {
 
     public static void exibirMenu() {
         System.out.println("____________________________");
-        System.out.println("MENU");
-        System.out.println("____________________________");
+        System.out.println("            MENU");
+        System.out.println("----------------------------");
         System.out.println("1 - Adicionar");
         System.out.println("2 - Pesquisar");
         System.out.println("3 - Listar");
@@ -39,20 +39,25 @@ public class FuncoesBiblioteca {
     }
 
     public static void listar(HashMap<String, ArrayList> listaLivros) {
-        for (String autor : listaLivros.keySet()) {
-            for (Object livro : listaLivros.get(autor)) {
-                System.out.println(livro + " - " + autor);
+        if (listaLivros.isEmpty()) {
+            System.out.println("A biblioteca ainda não possui nenhum livro cadastrado!");
+        } else {
+            System.out.println("Livros disponiveis:");
+            for (String autor : listaLivros.keySet()) {
+                for (Object livro : listaLivros.get(autor)) {
+                    System.out.println(livro + " - Autor: " + autor);
+                }
             }
         }
     }
 
-    public static ArrayList pesquisar(HashMap<String, ArrayList> listaLivros, String titulo) {
+    public static ArrayList pesquisar(HashMap<String, ArrayList<String>> listaLivros, String titulo) {
         boolean encontrado = false;
         ArrayList dadosDaPesquisa = new ArrayList<>();
 
         for (String autor : listaLivros.keySet()) {
-            for (Object livro : listaLivros.get(autor)) {
-                if (livro.equals(titulo)) {
+            for (String livro : listaLivros.get(autor)) {
+                if (livro.equalsIgnoreCase(titulo)) {
                     encontrado = true;
                     dadosDaPesquisa.add(encontrado);
                     dadosDaPesquisa.add(livro);
